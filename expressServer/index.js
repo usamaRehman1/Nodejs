@@ -1,5 +1,33 @@
-const express = require("express")
+// What is Express.js?
+// Express.js is a lightweight framework for Node.js that helps you build web servers and APIs easily.
 
+// Without Express you use the Node.js HTTP module, which requires more code. Express simplifies
+//  routing, middleware, and request handling.
+
+// Routing: Routing means handling different URLs.
+// Types of routes:
+
+// GET  ==> GET is used to retrieve (fetch) data from the server.
+// POST ==> POST is used to send data to the server to create something new
+// PUT ==> POST is used to send data to the server to create something new
+// DELETE ==> 
+
+// Request Object (req)
+// The request object contains all information sent by the client (browser or API request) to the server.
+
+// Response Object (res)
+// The response object is used to send data back to the client.
+
+// Route Parameters
+// Route parameters are dynamic values inside the URL.
+
+// Query Parameters
+// Query parameters are extra information added to the URL after ?.
+
+// A CRUD API is an API that allows you to Create, Read, Update, and Delete data.
+// These four operations are the basic actions used in almost every backend system built with Express.js and Node.js.
+
+const express = require("express")
 const app = express();
 
 // Middleweare to read JSON data
@@ -23,6 +51,7 @@ app.post("/users", (req, res) => {
     users.push(newUser)
 
     res.json({
+        status: true,
         message: "user add successfully",
         users: users
     })
@@ -68,8 +97,7 @@ app.delete("/users/:name", (req, res) => {
 })
 
 
-
-
+// server url listener
 app.listen(5000, () => {
     console.log("server running on the port of 5000")
 })
